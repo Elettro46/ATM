@@ -79,7 +79,7 @@ public class Deposit extends Transaction {
       if (input == CANCELED.getValore())
          return CANCELED;
       else {
-         return new Euro(input/100); // return dollar amount
+         return new Euro(input / 100.0); // return dollar amount
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit

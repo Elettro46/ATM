@@ -56,12 +56,12 @@ public class Withdrawal extends Transaction
             if ( amount <= availableBalance.getValore() )
             {   
                // check whether the cash dispenser has enough money
-               if ( cashDispenser.isSufficientCashAvailable( amount ) )
+               if ( cashDispenser.isSufficientCashAvailable(new Euro(amount)))
                {
                   // update the account involved to reflect withdrawal
                   bankDatabase.debit( getAccountNumber(), new Euro(amount));
                   
-                  cashDispenser.dispenseCash( amount ); // dispense cash
+                  cashDispenser.dispenseCash(new Euro(amount)); // dispense cash
                   cashDispensed = true; // cash was dispensed
 
                   // instruct user to take cash
